@@ -50,7 +50,7 @@ class Delegator(object):
             # rotate through 3 types (1, 2, 3) if it's not initialized.
             self.delegator_type = ((self.id - 1) % 3) + 1
 
-        print(f'{self.id=}, {self.delegator_type=}')
+        print(f'{self.id}, {self.delegator_type}')
         self.component_weights = get_component_weights(self.delegator_type)
         self.private_price = 0
 
@@ -60,7 +60,7 @@ class Delegator(object):
         Delegator.delegate_counter += 1
 
     def __repr__(self):
-        return f'Delegator {self.id=}, {self.private_price=:.2f}, {self.shares=:.2f}'
+        return f'Delegator {self.id}, {self.private_price=:.2f}, {self.shares=:.2f}'
 
     # member of the sharing pool (True/False)
     def is_member(self):
@@ -222,14 +222,14 @@ def get_component_weights(delegator_type=0):
         normalized_weights[delegator_type - 1] = 1
 
     # print(f'{delegator_type=}, {weights=}, {normalized_weights=}')
-    print(f'{delegator_type=}, {normalized_weights=}')
+    print(f'{delegator_type}, {normalized_weights}')
     return normalized_weights
 
 
 def test_weights_normalized():
     w = get_component_weights()
     print(w)
-    print(f'{sum(w)=}')
+    print(f'{sum(w)}')
     tolerance = 0.0001
     assert(sum(w) - 1.0 < tolerance)
 

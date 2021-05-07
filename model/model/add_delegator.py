@@ -59,7 +59,7 @@ def instantiate_delegate(params, step, sL, s, inputs):
             # NOTE: choose one of these smoothing_factor calculations
             # smoothing_factor = 1 - (1 / 2) ** random.uniform(1, 10)
             smoothing_factor = params['mean_smoothing_factor']
-            print(f'{smoothing_factor=}')
+            print(f'{smoothing_factor}')
 
             
             d = inputs["utils"]["Delegator"](shares=shares,
@@ -86,5 +86,5 @@ def reinitialize_delegators(params, step, sL, s, inputs):
         inputs["utils"]["Delegator"].delegate_counter = 1
 
     value = delegators
-    print(f'{timestep=}, {delegators=}')
+    print(f'{timestep}, {delegators}')
     return key, value
