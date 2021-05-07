@@ -18,7 +18,9 @@ from .model.delegator_behaviors_bookkeeping import (compute_cliff_vested_shares,
 
 from .model.initializer import reinitialize_reserve, reinitialize_supply, reinitialize_delegators
 
-psubs = [
+from cadCAD.configuration.utils import rename_psubs
+
+psubs = rename_psubs([
     {   
         'label': 'Reinitialize Delegators',
         'policies': {
@@ -115,4 +117,4 @@ psubs = [
             'spot_price': store_spot_price,
         },
     },
-]
+])

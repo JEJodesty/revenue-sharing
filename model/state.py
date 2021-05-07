@@ -1,4 +1,9 @@
-# from model.model import delegator
+from model.model.delegator import Delegator
+from configuration.utils import rename_utils
+
+utils = {
+    "Delegator": Delegator
+}
 
 # NOTE: shares and supply are used somewhat interchangeably.
 # shares are supply owned by an individual
@@ -15,5 +20,6 @@ genesis_state = {
     "delegators": None,
     "period_revenue": 0,  # this is passed directly to the delegators
     "spot_price": 2,
-    "expected_revenue": 7
+    "expected_revenue": 7,
+    "utils": rename_utils(utils)
 }

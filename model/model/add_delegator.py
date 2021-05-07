@@ -61,7 +61,8 @@ def instantiate_delegate(params, step, sL, s, inputs):
             smoothing_factor = params['mean_smoothing_factor']
             print(f'{smoothing_factor=}')
 
-            d = delegator.Delegator(shares=shares,
+            
+            d = inputs["utils"]["Delegator"](shares=shares,
                                     reserve_token_holdings=reserve_token_holdings,
                                     expected_revenue=delegator_expected_revenue,
                                     discount_rate=discount_rate,
@@ -80,9 +81,9 @@ def reinitialize_delegators(params, step, sL, s, inputs):
     delegators = s['delegators']
     timestep = s['timestep']
     if timestep == 1:
-        delegators = {0: delegator.Delegator(shares=10, minimum_shares=10, delegator_type=2, reserve_token_holdings=10000)}
+        delegators = {0: inputs["utils"]["Delegator"](shares=10, minimum_shares=10, delegator_type=2, reserve_token_holdings=10000)}
         # make sure we start counting delegator id at 1 again.
-        delegator.Delegator.delegate_counter = 1
+        inputs["utils"]["Delegator"].delegate_counter = 1
 
     value = delegators
     print(f'{timestep=}, {delegators=}')

@@ -6,8 +6,8 @@ def reinitialize_delegators(params, step, sL, s, inputs):
     delegators = s['delegators']
     timestep = s['timestep']
     if timestep == 1:
-        delegator.Delegator.delegate_counter = 0
-        delegators = {0: delegator.Delegator(shares=10, minimum_shares=1, delegator_type=2, reserve_token_holdings=10000)}
+        inputs["utils"]["Delegator"].delegate_counter = 0
+        delegators = {0: inputs["utils"]["Delegator"](shares=10, minimum_shares=1, delegator_type=2, reserve_token_holdings=10000)}
         # make sure we start counting delegator id at 1 again.
 
     value = delegators
