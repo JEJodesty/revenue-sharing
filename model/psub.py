@@ -25,7 +25,7 @@ psubs = rename_psubs([
         'label': 'Reinitialize Delegators',
         'policies': {
         },
-        'variables': {
+        'states': {
             'reserve': reinitialize_reserve,
             'supply': reinitialize_supply,
             'delegators': reinitialize_delegators
@@ -45,7 +45,7 @@ psubs = rename_psubs([
         'label': 'Update Vested Shares',
         'policies': {
         },
-        'variables': {
+        'states': {
             # 'delegators': compute_half_life_vested_shares
             'delegators': compute_cliff_vested_shares
         }
@@ -55,7 +55,7 @@ psubs = rename_psubs([
         'policies': {
             'expected_revenue_change': expected_revenue_change  # how much is paid in.
         },
-        'variables': {
+        'states': {
             'expected_revenue': expected_revenue,
             'delegators': update_delegators_expected_revenue,
         },
@@ -65,7 +65,7 @@ psubs = rename_psubs([
         'policies': {
             'revenue_amt': revenue_amt  # how much is paid in.
         },
-        'variables': {
+        'states': {
             'period_revenue': store_revenue,
         },
     },
@@ -73,7 +73,7 @@ psubs = rename_psubs([
         'label': 'Distribute Revenue',
         'policies': {
         },
-        'variables': {
+        'states': {
             'delegators': distribute_revenue,
         }
     },
@@ -84,7 +84,7 @@ psubs = rename_psubs([
         'policies': {
             'should_instantiate_delegate': should_instantiate_delegate
         },
-        'variables': {
+        'states': {
             'delegators': instantiate_delegate,
         },
     },
@@ -92,7 +92,7 @@ psubs = rename_psubs([
         'label': 'Compute and Store Private Prices',
         'policies': {
         },
-        'variables': {
+        'states': {
             'delegators': compute_and_store_private_prices,
         },
     },
@@ -102,7 +102,7 @@ psubs = rename_psubs([
             # outputs ordered list of acting delegatorIds this timestep
             'may_act_this_timestep': may_act_this_timestep
         },
-        'variables': {
+        'states': {
             'delegators': act,
         },
     },
@@ -111,7 +111,7 @@ psubs = rename_psubs([
         'policies': {
             'account_global_state_from_delegator_states': account_global_state_from_delegator_states
         },
-        'variables': {
+        'states': {
             'reserve': store_reserve,
             'supply': store_supply,
             'spot_price': store_spot_price,
