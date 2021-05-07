@@ -1,5 +1,5 @@
 from model.model.delegator import Delegator
-from configuration.utils import rename_utils
+from cadCAD.configuration.utils import rename_utils
 
 utils = {
     "Delegator": Delegator
