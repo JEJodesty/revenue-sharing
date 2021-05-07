@@ -1,4 +1,3 @@
-from model import config
+from model.config import exp
 
-exp = config.exp
-client_modules = [config]
+model_dir = "model"
