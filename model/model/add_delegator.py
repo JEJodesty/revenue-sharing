@@ -27,7 +27,7 @@ def instantiate_delegate(params, step, sL, s, inputs):
         for i in range(params['max_delegator_count'] - len(s['delegators'])):
             # reserve_token_holdings = params['expected_reserve_token_holdings'] * stats.expon.rvs()
             reserve_token_holdings = params['expected_reserve_token_holdings']
-            print(f'{reserve_token_holdings=}')
+            print(f'{reserve_token_holdings}')
             if reserve_token_holdings < 0:
                 reserve_token_holdings = 0
 
