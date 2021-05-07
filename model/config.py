@@ -30,7 +30,7 @@ params = {'initial_reserve': [10],
           }
 
 simulation_config = configuration.utils.config_sim({
-    'T': range(2000),
+    'T': range(10),
     'N': 1,
     'M': params
 })
