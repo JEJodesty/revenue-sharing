@@ -97,8 +97,8 @@ class Delegator(object):
         reserve_asset_per_share_time_corrected = reserve_asset_per_period_per_share * \
             self.time_factor
 
-        # print(f'dividend_value: {self.id=}, {supply=}, {self.expected_revenue=}, {revenue_per_period_per_share=}, \
-        #     {reserve_asset_per_period_per_share=}, {reserve_asset_per_share_time_corrected=}')
+        # print(f'dividend_value: {self.id}, {supply}, {self.expected_revenue}, {revenue_per_period_per_share}, \
+        #     {reserve_asset_per_period_per_share}, {reserve_asset_per_share_time_corrected}')
         return reserve_asset_per_share_time_corrected
 
     def will_act(self):
@@ -122,7 +122,7 @@ class Delegator(object):
 
         created_shares = 0
         added_reserve = 0
-        # print(f'buy_or_sell: DELEGATOR {timestep=}:   {self.id} -- {self.private_price=}, {spot_price=}, {pct_price_diff=}, {self.reserve_token_holdings=}, {self.shares=}')
+        # print(f'buy_or_sell: DELEGATOR {timestep}:   {self.id} -- {self.private_price}, {spot_price}, {pct_price_diff}, {self.reserve_token_holdings}, {self.shares}')
         if pct_price_diff < mininum_required_price_pct_diff_to_act:
             # don't act.
             return created_shares, added_reserve
@@ -188,7 +188,7 @@ class Delegator(object):
         # final_spot_price = (2 * (reserve + added_reserve)) / (supply + created_shares)
         # acceptable_tolerance = mininum_required_price_pct_diff_to_act
         # diff = abs(private_price - final_spot_price)
-        # print(f'buy_or_sell: DELEGATOR {self.id} -- {private_price=}, {final_spot_price=}, {diff=}, {acceptable_tolerance=}')
+        # print(f'buy_or_sell: DELEGATOR {self.id} -- {private_price}, {final_spot_price}, {diff}, {acceptable_tolerance}')
 
         # NOTE: we cannot assert(diff < acceptable_tolerance) for all cases because the diff won't be less than acceptable_tolerance in all cases
         # for example: the delegator is not allowed to sell due to a minimum number of shares.
@@ -197,9 +197,9 @@ class Delegator(object):
         self.reserve_token_holdings -= added_reserve
 
         # if created_shares > 0:
-        #     print(f'buy_or_sell: DELEGATOR {self.id} -- BOUGHT {created_shares=} for {added_reserve=}')
+        #     print(f'buy_or_sell: DELEGATOR {self.id} -- BOUGHT {created_shares} for {added_reserve}')
         # elif created_shares < 0:
-        #     print(f'buy_or_sell: DELEGATOR {self.id} -- SOLD {created_shares=} for {added_reserve=}')
+        #     print(f'buy_or_sell: DELEGATOR {self.id} -- SOLD {created_shares} for {added_reserve}')
 
         return created_shares, added_reserve
 
@@ -221,7 +221,7 @@ def get_component_weights(delegator_type=0):
         normalized_weights = [0, 0, 0]
         normalized_weights[delegator_type - 1] = 1
 
-    # print(f'{delegator_type=}, {weights=}, {normalized_weights=}')
+    # print(f'{delegator_type}, {weights}, {normalized_weights}')
     print(f'{delegator_type}, {normalized_weights}')
     return normalized_weights
 

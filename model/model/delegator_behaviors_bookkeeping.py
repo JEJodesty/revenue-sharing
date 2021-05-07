@@ -48,7 +48,7 @@ def compute_half_life_vested_shares(params, step, sL, s, inputs):
                 delegator._unvested_shares[timestep] = 0
                 
         delegator.vested_shares += shares_vesting_this_period
-    # print(f'{delegator.vested_shares=}, {delegator.unvested_shares=}, {delegator.shares=}')
+    # print(f'{delegator.vested_shares}, {delegator.unvested_shares}, {delegator.shares}')
     value = delegators
 
     return key, value
@@ -67,7 +67,7 @@ def compute_cliff_vested_shares(params, step, sL, s, inputs):
             shares_vesting_this_period = delegator._unvested_shares[cliff_vesting_timestep]
             delegator.vested_shares += shares_vesting_this_period
             delegator._unvested_shares[cliff_vesting_timestep] = 0
-            # print(f'{shares_vesting_this_period=}, {delegator.vested_shares=}, {delegator._unvested_shares=}')
+            # print(f'{shares_vesting_this_period}, {delegator.vested_shares}, {delegator._unvested_shares}')
         else:
             # no shares are being vested this timestep
             pass

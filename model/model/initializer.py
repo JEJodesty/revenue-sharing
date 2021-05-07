@@ -11,7 +11,7 @@ def reinitialize_delegators(params, step, sL, s, inputs):
         # make sure we start counting delegator id at 1 again.
 
     value = delegators
-    # print(f'{timestep=}, {delegators=}')
+    # print(f'{timestep}, {delegators}')
     return key, value
 
 
@@ -23,7 +23,7 @@ def reinitialize_supply(params, step, sL, s, inputs):
         supply = 10
 
     value = supply
-    # print(f'{timestep=}, {supply=}')
+    # print(f'{timestep}, {supply}')
     return key, value
 
 
@@ -35,5 +35,5 @@ def reinitialize_reserve(params, step, sL, s, inputs):
         reserve = 10
 
     value = reserve
-    # print(f'{timestep=}, {supply=}')
+    # print(f'{timestep}, {supply}')
     return key, value
