@@ -14,13 +14,15 @@ from .model.delegator_behaviors_bookkeeping import (compute_cliff_vested_shares,
                                                     account_global_state_from_delegator_states,
                                                     store_reserve,
                                                     store_supply,
-                                                    store_spot_price)
+                                                    store_spot_price,
+                                                    compute_half_life_vested_shares
+                                                    )
 
 from .model.initializer import reinitialize_reserve, reinitialize_supply, reinitialize_delegators
 
 from cadCAD.configuration.utils import rename_psubs
 
-psubs = rename_psubs([
+psubs = [
     {   
         'label': 'Reinitialize Delegators',
         'policies': {
@@ -117,4 +119,5 @@ psubs = rename_psubs([
             'spot_price': store_spot_price,
         },
     },
-])
+]
+# psubs = rename_psubs(psubs)
