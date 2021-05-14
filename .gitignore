@@ -1,8 +1,4 @@
 *.pyc
 .vscode/settings.json
 .idea
-
-pkg.egg-info
-build
-build.sh
 venv

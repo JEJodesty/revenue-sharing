@@ -20,5 +20,8 @@ genesis_state = {
     "delegators": None,
     "period_revenue": 0,  # this is passed directly to the delegators
     "spot_price": 2,
-    "expected_revenue": 7
+    "expected_revenue": 7,
+    # "utils": rename_utils(utils)
+    # "utils": utils
+    "f": None
 }
