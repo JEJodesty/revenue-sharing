@@ -17,7 +17,7 @@
 # get_ipython().run_line_magic('load_ext', 'autoreload')
 # get_ipython().run_line_magic('autoreload', '2')
 import sys
-
+from tabulate import tabulate
 import pandas as pd
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
 
@@ -54,6 +54,9 @@ run = Executor(exec_context=local_proc_ctx, configs=exp.configs)
 
 raw_result, _, _ = run.execute()
 df = pd.DataFrame(raw_result)
+
+print(tabulate(df, headers='keys', tablefmt='psql'))
+exit()
 
 # df = profile_run(genesis_state,
 #                  params,

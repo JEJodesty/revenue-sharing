@@ -4,9 +4,9 @@ from .model.add_delegator import (instantiate_delegate,
 from .model.delegator_behaviors import (act,
                                         may_act_this_timestep)
 
-from .model.revenue import (revenue_amt, store_revenue, distribute_revenue,
-                            expected_revenue_change, expected_revenue,
-                            update_delegators_expected_revenue)
+from .model.revenue import (revenue_amt, store_revenue, distribute_revenue)
+                            # expected_revenue_change, expected_revenue,
+                            # update_delegators_expected_revenue)
 
 from .model.private_price import compute_and_store_private_prices
 
@@ -22,8 +22,32 @@ from .model.initializer import reinitialize_reserve, reinitialize_supply, reinit
 
 from cadCAD.configuration.utils import rename_psubs
 
+def f(params, step, sL, s, inputs):
+    return "f", s['timestep']
+
+# psubs = [
+#     {
+#         'policies': {},
+#         'states': {
+#             # "f": f,
+#             'reserve': reinitialize_reserve,
+#             'supply': reinitialize_supply,
+#             'delegators': reinitialize_delegators
+#         }
+#     },
+#     {
+#         'policies': {
+#         },
+#         'states': {
+#             # 'delegators': compute_half_life_vested_shares
+#             'delegators': compute_cliff_vested_shares
+#             # "f": f
+#         }
+#     },
+# ]
+
 psubs = [
-    {   
+    {
         'label': 'Reinitialize Delegators',
         'policies': {
         },
@@ -52,16 +76,16 @@ psubs = [
             'delegators': compute_cliff_vested_shares
         }
     },
-    {
-        'label': 'Expected Revenue Change Process',
-        'policies': {
-            'expected_revenue_change': expected_revenue_change  # how much is paid in.
-        },
-        'states': {
-            'expected_revenue': expected_revenue,
-            'delegators': update_delegators_expected_revenue,
-        },
-    },
+    # {
+    #     'label': 'Expected Revenue Change Process',
+    #     'policies': {
+    #         'expected_revenue_change': expected_revenue_change  # how much is paid in.
+    #     },
+    #     'states': {
+    #         'expected_revenue': expected_revenue,
+    #         'delegators': update_delegators_expected_revenue,
+    #     },
+    # },
     {
         'label': 'Revenue Arrival Process',
         'policies': {
