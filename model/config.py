@@ -57,6 +57,9 @@ simulation_config = configuration.utils.config_sim({
 
 exp = configuration.Experiment()
 
-exp.append_configs(model_id='sys_model_A', sim_configs=simulation_config,
-                   initial_state=genesis_state,
-                   partial_state_update_blocks=psubs)
+exp.append_configs(
+    model_id='sys_model_A',
+    sim_configs=simulation_config,
+    initial_state=genesis_state,
+    partial_state_update_blocks=psubs
+)
