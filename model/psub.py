@@ -20,31 +20,7 @@ from .model.delegator_behaviors_bookkeeping import (compute_cliff_vested_shares,
 
 from .model.initializer import reinitialize_reserve, reinitialize_supply, reinitialize_delegators
 
-from cadCAD.configuration.utils import rename_psubs
-
-def f(params, step, sL, s, inputs):
-    return "f", s['timestep']
-
-# psubs = [
-#     {
-#         'policies': {},
-#         'states': {
-#             # "f": f,
-#             'reserve': reinitialize_reserve,
-#             'supply': reinitialize_supply,
-#             'delegators': reinitialize_delegators
-#         }
-#     },
-#     {
-#         'policies': {
-#         },
-#         'states': {
-#             # 'delegators': compute_half_life_vested_shares
-#             'delegators': compute_cliff_vested_shares
-#             # "f": f
-#         }
-#     },
-# ]
+# from cadCAD.configuration.utils import rename_psubs
 
 psubs = [
     {

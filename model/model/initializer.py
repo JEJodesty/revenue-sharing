@@ -5,10 +5,6 @@ def reinitialize_delegators(params, step, sL, s, inputs):
     key = 'delegators'
     delegators = s['delegators']
     timestep = s['timestep']
-    # help(delegator.Delegator)
-    # print()
-    # print(timestep)
-    # exit()
     # if timestep == 1:
     if timestep == 0:
         delegator.Delegator.delegate_counter = 0
