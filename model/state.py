@@ -1,9 +1,9 @@
 from model.model.delegator import Delegator
 from cadCAD.configuration.utils import rename_utils
 
-utils = {
-    "Delegator": Delegator
-}
+# utils = {
+#     "Delegator": Delegator
+# }
 
 # NOTE: shares and supply are used somewhat interchangeably.
 # shares are supply owned by an individual
@@ -21,5 +21,7 @@ genesis_state = {
     "period_revenue": 0,  # this is passed directly to the delegators
     "spot_price": 2,
     "expected_revenue": 7,
-    "utils": rename_utils(utils)
+    # "utils": rename_utils(utils)
+    # "utils": utils
+    "f": None
 }

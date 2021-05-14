@@ -61,7 +61,8 @@ def compute_cliff_vested_shares(params, step, sL, s, inputs):
     timestep = s['timestep']
 
     cliff_vesting_timestep = timestep - params['cliff_vesting_timesteps']
-    
+    print()
+    print(timestep)
     for delegator in delegators.values():
         if cliff_vesting_timestep in delegator._unvested_shares:
             shares_vesting_this_period = delegator._unvested_shares[cliff_vesting_timestep]
